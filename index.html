@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GTAC VCE201 Student Logbook</title>
+
+    <style>
+      body {
+        font-family: Figtree, sans-serif;
+        text-align: center;
+        margin: 20px;
+      }
+
+      .sidebar {
+        position: fixed;
+        top: 40px;
+        right: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .sidebar button {
+        padding: 10px;
+        cursor: pointer;
+        background: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-family: inherit;
+      }
+      .container {
+        max-width: 800px;
+        margin: 20px;
+      }
+      .investigation {
+        margin-bottom: 50px;
+      }
+      .image-container {
+        justify-content: center;
+        align-items: center;
+        max-width: 90%;
+        height: auto;
+        margin-top: 20px;
+      }
+      textarea {
+        width: 100%;
+        height: 100px;
+        margin-top: 20px;
+        font-family: inherit;
+      }
+      .custom-upload-btn {
+  display: inline-block;
+  background: #007bff;
+  color: white;
+  padding: 10px 18px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 1em;
+  margin-bottom: 10px;
+  transition: background 0.2s;
+}
+.custom-upload-btn:hover {
+  background: #0056b3;
+}
+.custom-upload-btn input[type="file"] {
+  display: none;
+}
+table .image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 140px;
+  min-width: 140px;
+  height: 140px;
+  width: 140px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+table .image-container img {
+  max-width: 120px;
+  max-height: 120px;
+  width: auto;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  object-fit: contain;
+}
+      
+    </style>
+  </head>
+
+  <body>
+    <div class="sidebar">
+      
+      <br /><br /><br />
+      <img
+        src="https://gtac.edu.au/wp-content/themes/gtac/assets/images/logo-2024.png"
+        id="logoImage"
+        style="width: 40%; opacity: 0.5"
+      />
+      <button onclick="scrollToSection('exp1')">Case Study 1</button>
+      <button onclick="scrollToSection('exp2')">Case Study 2</button>
+      <button onclick="scrollToSection('exp3')">Case Study 3</button>
+      <button onclick="printPageAsPDF()">Save as PDF</button>
+    </div>
+
+    <div class="container">
+      <h1 style="text-align: center">
+        VCE201 Case Study Profiles <br> Prenatal & Predictive Genetic Testing </br>
+      </h1>
+
+      <h3>Enter Your Names:</h3>
+      <textarea id="experiment1" placeholder="Type your names here"></textarea>
+
+      <div id="exp1" class="experiment active">
+        <h2 style="color: #4C34E5">Case Study 1: Aneuploidy</h2>
+        
+        <ul style="text-align: left; font-weight: normal; margin-left: 1em;">
+        <h3>
+          Learning intention: We will analyse genetic information for aneuploidy as presented in a case study.
+        </h3>
+        <li>I can describe how aneuploidy occurs</li>
+       <li>I can interpret genetic information for inherited medical conditions</li> </ul>
+        
+       <div style="margin-top: 20px;">
+  
+  <h3 style="color: #ff6d3a">Upload images for Task 2:</h3>
+  <p> Model the number of X, Y and 21 chromosomes for a set of sperm and egg that could lead to your condition.  
+  <br>
+    <br>Karyotyping </br></p>
+  </p>
+  
+<table style="width:100%; border-collapse: collapse; margin: 24px 0;">
+  <tr>
+    <th>1. Turner Syndrome</th>
+    <th>2. Albinism</th>
+    <th>3. Kleinfelter Syndrome</th>
+  </tr>
+  <tr>
+    <td style="text-align:center;">
+      <label class="custom-upload-btn">
+        Upload Karyotype 1
+        <input type="file" accept="image/*" onchange="addUploadedImage(event, 'sideImage1A')" style="display:none;" />
+      </label>
+      <div id="sideImage1A" class="image-container"></div>
+    </td>
+    <td style="text-align:center;">
+      <label class="custom-upload-btn">
+        Upload Karyotype 2
+        <input type="file" accept="image/*" onchange="addUploadedImage(event, 'sideImage2A')" style="display:none;" />
+      </label>
+      <div id="sideImage2A" class="image-container"></div>
+    </td>
+    <td style="text-align:center;">
+      <label class="custom-upload-btn">
+        Upload Karyotype 3
+        <input type="file" accept="image/*" onchange="addUploadedImage(event, 'sideImage3A')" style="display:none;" />
+      </label>
+      <div id="sideImage3A" class="image-container"></div>
+    </td>
+  </tr>
+</table>
+<p>Fluorescent In Situ Hybridisation (FISH) slides </p>
+<table style="width:100%; border-collapse: collapse; margin: 24px 0;">
+  <tr>
+    <td style="text-align:center;">
+      <label class="custom-upload-btn">
+        Upload FISH 1
+        <input type="file" accept="image/*" onchange="addUploadedImage(event, 'sideImage1B')" style="display:none;" />
+      </label>
+      <div id="sideImage1B" class="image-container"></div>
+    </td>
+    <td style="text-align:center;">
+      <label class="custom-upload-btn">
+        Upload FISH 2
+        <input type="file" accept="image/*" onchange="addUploadedImage(event, 'sideImage2B')" style="display:none;" />
+      </label>
+      <div id="sideImage2B" class="image-container"></div>
+    </td>
+    <td style="text-align:center;">
+      <label class="custom-upload-btn">
+        Upload FISH 3
+        <input type="file" accept="image/*" onchange="addUploadedImage(event, 'sideImage3B')" style="display:none;" />
+      </label>
+      <div id="sideImage3B" class="image-container"></div>
+    </td>
+  </tr>
+</table>
+
+
+      <div id="exp2" class="experiment">
+        <h2 style="color: #4C34E5">Case Study 2: Lauren & Alan</h2>
+        <h3 style="color: #ff6d3a">Testing for the inheritance of aneuploidy in prenatal babies</h3>
+          <li>I can describe how aneuploidy occurs</li>
+          <li>I can interpret genetic information for inherited medical conditions</li> </ul>
+        <img
+          src="INSERT ALAN AND LAUREN IMAGE HERE"
+          alt="Lauren and Alan with baby"
+          style="width: 100%"
+        />
