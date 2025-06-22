@@ -127,7 +127,7 @@ table .image-container img {
       <button onclick="scrollToSection('exp1')">Case Study 1</button>
       <button onclick="scrollToSection('exp2')">Case Study 2</button>
       <button onclick="scrollToSection('exp3')">Case Study 3</button>
-      <button onclick="scrollToSection('exp4')">Application</button>
+      <button onclick="scrollToSection('exp4')">Conclusions</button>
       <button onclick="printPageAsPDF()">Save as PDF</button>
     </div>
 
@@ -146,15 +146,15 @@ table .image-container img {
         <h3>
           Learning intention: We will analyse genetic information for aneuploidy as presented in a case study.
         </h3>
-        <li>I can describe how aneuploidy occurs</li>
-       <li>I can interpret genetic information for inherited medical conditions</li> </ul>
+        <li>I can describe how aneuploidy occurs.</li>
+       <li>I can interpret genetic information for inherited medical conditions.</li> </ul>
         
        <div style="margin-top: 20px;">
   
   <h3 style="color: #ff6d3a">Upload images for Task 2:</h3>
   <p> Model the number of X, Y and 21 chromosomes for a set of sperm and egg that could lead to your condition.  
   <br>
-    <br>Karyotyping </br></p>
+    <h4>Karyotyping </h4></p>
   </p>
   
 <table style="width:100%; border-collapse: collapse; margin: 24px 0;">
@@ -187,7 +187,7 @@ table .image-container img {
     </td>
   </tr>
 </table>
-<p>Fluorescent In Situ Hybridisation (FISH) slides </p>
+<h4>Fluorescent In Situ Hybridisation (FISH) slides </h4>
 <table style="width:100%; border-collapse: collapse; margin: 24px 0;">
   <tr>
     <td style="text-align:center;">
@@ -232,7 +232,7 @@ table .image-container img {
 
         <p> State what PKU stands for and describe the cause of PKU.</p>
          <textarea
-          id="experiment5"
+          id="experiment2"
           placeholder="Define PKU here"
         ></textarea>
 
@@ -240,7 +240,7 @@ table .image-container img {
         <p> Add a picture of the Guthrie test results here, including the positive and negative controls.</p>
          
 <label class="custom-upload-btn">
-  Upload Image
+  Upload Image of Guthrie plates together
     <input
     type="file"
     accept="image/*"
@@ -257,7 +257,7 @@ table .image-container img {
         </h3>
 <p> How would you inform Lauren and Alan about their newborn baby's screening for PKU?  </p>
         <textarea
-          id="experiment6"
+          id="experiment3"
           placeholder="Example: A Guthrie test was conducted on your baby to screen for...Your baby's test was (positive/negative) for PKU. This means that... "
         ></textarea>
         
@@ -284,7 +284,7 @@ table .image-container img {
           <li>Why would Stevie and Ben need to be tested? </li>
           <li>Why wouldn't they wait until the baby is born? </li> </ul>
         <textarea
-          id="experiment8"
+          id="experiment4"
           placeholder="Type information about the  inheritance of PKU here"
         ></textarea>
           <div>
@@ -293,7 +293,7 @@ table .image-container img {
           </div>
 
 <label class="custom-upload-btn">
-  Upload Image
+  Upload Image of eGel results
   <input
     type="file"
     accept="image/*"
@@ -305,64 +305,64 @@ table .image-container img {
 
 <h4> Analyse your gel electrophoresis results:</h4>
  
- <ul style="text-align: left; font-weight: normal; margin-left: 1em;">Consider:
+ <ul style="text-align: left; font-weight: normal; margin-left: 8em;">Consider:
           <li>Why do we use a restriction digest when testing for PKU?</li>
           <li>What did these results tell us after we used the digest?</li>
           <li>Are there any limitations to these results? </li></ul>
-
+        <textarea
+          id="experiment5"
+          placeholder="Type your analysis of the gel electrophoresis results here"
+        ></textarea>
 <div id="exp4" class="experiment"></div>
-          <h2>Extension:</h2>
-<div><h4>Conclusions:</h4></div>
-        <p style="text-align: left; font-weight: normal; margin-left: 1em;">Lauren and her partner are wanting to have more children in the future. They have been referred to a genetic counsellor to determine the likelihood of their future children having PKU.  </p>
-       
+          <h2 style="color: #4C34E5">Conclusions:</h2>
+<div><h4 style="color: #ff6d3a">Application Questions</h4></div>
+        
+          <h3>Pedigree Chart:</h3>
 
+       <h4>Construct a pedigree chart to show the PKU status of this family.</h4>
+       <label class="custom-upload-btn">
+      Upload Image of Pedigree Chart
+      <input
+        type="file"
+        accept="image/*"
+        onchange="addUploadedImage(event, 'imageContainer8')"
+        style="display:none;"
+      /> </label>
+<div id="imageContainer9" class="image-container"></div>
 
           <h3>Punnett Square:</h3>
-
-       <h5>Complete the Punnett Square and comment on their outcomes.</h5>
+<p>Lauren and her partner want to have more children in the future. They have been referred to a genetic counsellor to determine the likelihood of their future children having PKU.  </p>
+       
+       <h4>Complete the Punnett Square and comment on their outcomes.</h4>
 
 <table class="punnett-table" style="width: 300px; border-collapse: collapse; margin: 24px auto;">
   <tr>
     <th class="no-border"></th>
-    <th contenteditable="true">Parent 2<br></th>
-    <th contenteditable="true">Parent 2<br></th>
+    <th contenteditable="true"><br></th>
+    <th contenteditable="true"><br></th>
   </tr>
   <tr>
-    <th contenteditable="true">Parent 1<br></th>
+    <th contenteditable="true"><br></th>
     <td contenteditable="true"></td>
     <td contenteditable="true"></td>
   </tr>
   <tr>
-    <th contenteditable="true">Parent 1<br></th>
+    <th contenteditable="true"><br></th>
     <td contenteditable="true"></td>
     <td contenteditable="true"></td>
   </tr>
 </table>
 
-<h4> Extension: What would the FISH results for Lauren and Alan's baby look like?</h4>
+
+
+<h4 style="color: #155B4F"> Extension: What would the FISH results for Lauren and Alan's baby look like?</h4>
         <textarea
-          id="experiment7"
+          id="experiment6"
           placeholder="Describe the FISH results for Lauren and Alan's baby here"
         ></textarea>
 
-          <p style="text-align: left">
-            1. What is the purpose of transforming bacteria?
-            <br />
-            2. What are some possible explanations for differences between the
-            results you might see back at school? <br />
-            i.e. Limitations and errors?
-          </p>
 
-          <textarea
-            id="experiment12"
-            placeholder="Type your response here"
-          ></textarea>
 
-          <h3>Conclusion (back at school):</h3>
-          <textarea
-            id="experiment13"
-            placeholder="Write your conclusions here"
-          ></textarea>
         </div>
       </div>
     </div>
