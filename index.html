@@ -689,6 +689,10 @@ table .image-container img {
             "imageContainer3",
             "imageContainer4",
             "imageContainer5",
+            "imageContainer6",
+            "imageContainer7",
+            "imageContainer8",
+            "imageContainer9",
           ];
 
           imageContainers.forEach((containerId) => {
@@ -709,7 +713,7 @@ table .image-container img {
         <h2>Restore Panel</h2>
         <p>Click a button below to place example images or restore data.</p>
 
-        <button onclick="restoreImage('imageContainer1', 'gelmodel.JPG')">
+        <button onclick="restoreImage('imageContainer1', 'Pedigree Chart.JPG')">
           Gel Model
         </button>
         <button onclick="restoreImage('imageContainer2', 'gelresult.JPG')">
@@ -723,6 +727,18 @@ table .image-container img {
         </button>
         <button onclick="restoreImage('imageContainer5', 'sample.JPG')">
           Sample Result
+        </button>        
+        <button onclick="restoreImage('imageContainer6', 'gelresult.JPG')">
+          Gel Result
+        </button>
+        <button onclick="restoreImage('imageContainer7', 'Guthrie results.png')">
+          Guthrie Test Results
+        </button>
+        <button onclick="restoreImage('imageContainer8', 'vce201 eGel result.png')">
+          Gel Electrophoresis Result
+        </button>
+        <button onclick="restoreImage('imageContainer9', 'Pedigree Chart.png')">
+          Pedigree Chart
         </button>
         <button onclick="clearAllImages()">
           Clear All Images (DANGER-CANNOT UNDO)
@@ -782,27 +798,7 @@ table .image-container img {
         margin: 15px 0;
       }
       
-      @media print {
-    .image-container,
-    .custom-upload-btn,
-    table,
-    .container {
-      break-inside: avoid;
-      page-break-inside: avoid;
-    }
-    img {
-      max-width: 100% !important;
-      height: auto !important;
-      page-break-inside: avoid;
-      display: block;
-      margin: 0 auto;
-    }
-    /* Optional: Reduce margins for print */
-    body, .container {
-      margin: 0 !important;
-      padding: 0 !important;
-    }
-  }
+     
     </style>
   </body>
 </html>
