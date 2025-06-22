@@ -781,6 +781,28 @@ table .image-container img {
       .overlay hr {
         margin: 15px 0;
       }
+      
+      @media print {
+    .image-container,
+    .custom-upload-btn,
+    table,
+    .container {
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+    img {
+      max-width: 100% !important;
+      height: auto !important;
+      page-break-inside: avoid;
+      display: block;
+      margin: 0 auto;
+    }
+    /* Optional: Reduce margins for print */
+    body, .container {
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+  }
     </style>
   </body>
 </html>
