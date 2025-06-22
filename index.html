@@ -713,23 +713,23 @@ table .image-container img {
         <h2>Restore Panel</h2>
         <p>Click a button below to place example images or restore data.</p>
 
-        <button onclick="restoreImage('imageContainer1', 'Pedigree Chart.JPG')">
-          Gel Model
+        <button onclick="restoreImage('imageContainer1', 'Turner1.png')">
+          Turner Karyotype
         </button>
-        <button onclick="restoreImage('imageContainer2', 'gelresult.JPG')">
-          Gel Result
+        <button onclick="restoreImage('imageContainer2', 'Albinism1.png')">
+          Albinism Karyotype
         </button>
-        <button onclick="restoreImage('imageContainer3', 'growthmodel.JPG')">
-          Bacterial Growth Model
+        <button onclick="restoreImage('imageContainer3', 'Kleinfelter1.png')">  
+          Kleinfelter Karyotype
         </button>
-        <button onclick="restoreImage('imageContainer4', 'fluoro.JPG')">
-          Fluorescent Bacteria
+        <button onclick="restoreImage('imageContainer4', 'Turner2.png')">
+          Turner FISH
         </button>
-        <button onclick="restoreImage('imageContainer5', 'sample.JPG')">
-          Sample Result
+        <button onclick="restoreImage('imageContainer5', 'Albinism2.png')">
+          Albinism FISH
         </button>        
-        <button onclick="restoreImage('imageContainer6', 'gelresult.JPG')">
-          Gel Result
+        <button onclick="restoreImage('imageContainer6', 'Kleinfelter2.png')">
+          Kleinfelter FISH
         </button>
         <button onclick="restoreImage('imageContainer7', 'Guthrie results.png')">
           Guthrie Test Results
@@ -797,7 +797,11 @@ table .image-container img {
       .overlay hr {
         margin: 15px 0;
       }
-      
+      @media print {
+  .sidebar {
+    display: none !important;
+  }
+}
      
     </style>
   </body>
