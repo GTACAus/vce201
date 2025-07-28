@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GTAC VCE201 Student Logbook</title>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+      body {
+        font-family: 'Figtree', sans-serif;
+        text-align: center;
+        margin: 20px;
+      }
+
+      .sidebar {
+        position: fixed;
+        top: 40px;
+        right: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .sidebar button {
+        padding: 10px;
+        cursor: pointer;
+        background: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-family: inherit;
+      }
+      .container {
+        max-width: 800px;
+        margin: 20px;
+      }
+      .investigation {
+        margin-bottom: 50px;
+      }
+      .image-container {
+        justify-content: center;
+        align-items: center;
+        max-width: 90%;
+        height: auto;
+        margin-top: 20px;
+      }
+      textarea {
+        width: 100%;
+        height: 100px;
+        margin-top: 20px;
+        font-family: inherit;
+      }
+      .custom-upload-btn {
+  display: inline-block;
+  background: #007bff;
+  color: white;
+  padding: 10px 18px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 1em;
+  margin-bottom: 10px;
+  transition: background 0.2s;
+}
+.custom-upload-btn:hover {
+  background: #0056b3;
+}
+.custom-upload-btn input[type="file"] {
+  display: none;
+}
+table .image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 140px;
+  min-width: 140px;
+  height: 140px;
+  width: 140px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+table .image-container img {
+  max-width: 120px;
+  max-height: 120px;
+  width: auto;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  object-fit: contain;
+}
+
+.punnett-table, .punnett-table th, .punnett-table td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+.punnett-table th, .punnett-table td {
+  padding: 8px;
+  text-align: center;
+  background: #fff;
+}
+.punnett-table th.no-border {
+  border-top: none !important;
+  border-left: none !important;
+  background: #fff;
+}
+.punnett-table th[contenteditable="true"],
+.punnett-table td[contenteditable="true"] {
+  background-color: #eaf7ff;
+}
+.punnett-table th:not(.no-border) {
+  background-color: #f2f2f2;
+}
+      
+    </style>
+  </head>
+
+  <body>
+    <div class="sidebar">
+      
+      <br /><br /><br />
+      <img
+        src="logo-2024.png"
+        id="logoImage"
+        style="width: 40%; opacity: 0.5"
+      />
+      <button onclick="scrollToSection('exp1')">Case Study 1</button>
+      <button onclick="scrollToSection('exp2')">Case Study 2</button>
+      <button onclick="scrollToSection('exp3')">Case Study 3</button>
+      <button onclick="scrollToSection('exp4')">Conclusions</button>
+      <button onclick="printPageAsPDF()">Save as PDF</button>
+    </div>
+
+    <div class="container">
+      <h1 style="text-align: center">
+        VCE201 Case Study Profiles <br> Prenatal & Predictive Genetic Testing </br>
+      </h1>
+
+      <h3>Enter Your Names:</h3>
+      <textarea id="experiment1" placeholder="Type your names here"></textarea>
+
+      <div id="exp1" class="experiment active">
+        <h2 style="color: #4C34E5">Case Study 1: Aneuploidy</h2>
+        
+        <ul style="text-align: left; font-weight: normal; margin-left: 1em;">
+        <h3>
+          Learning intention: We will analyse genetic information for aneuploidy as presented in a case study.
+        </h3>
+        <li>I can describe how aneuploidy occurs.</li>
+       <li>I can interpret genetic information for inherited medical conditions.</li> </ul>
+        
+       <div style="margin-top: 20px;">
+  
+  <h3 style="color: #ff6d3a">Upload images for Task 2:</h3>
+  <p> Model the number of X, Y and 21 chromosomes for a set of sperm and egg that could lead to your condition.  
+  <br>
+    <h4>Karyotyping </h4></p>
+  </p>
+  
+<table style="width:100%; border-collapse: collapse; margin: 24px 0;">
+  <tr>
+    <th>1. Turner Syndrome</th>
+    <th>2. Albinism</th>
+    <th>3. Klinefelter Syndrome</th>
+  </tr>
+  <tr>
+    <td style="text-align:center;">
+      <label class="custom-upload-btn">
+        Upload Karyotype 1
+        <input type="file" accept="image/*" onchange="addUploadedImage(event, 'imageContainer1')" style="display:none;" />
+      </label>
+      <div id="imageContainer1" class="image-container"></div>
+    </td>
+    <td style="text-align:center;">
+      <label class="custom-upload-btn">
+        Upload Karyotype 2
+        <input type="file" accept="image/*" onchange="addUploadedImage(event, 'imageContainer2')" style="display:none;" />
+      </label>
+      <div id="imageContainer2" class="image-container"></div>
+    </td>
+    <td style="text-align:center;">
+      <label class="custom-upload-btn">
+        Upload Karyotype 3
+        <input type="file" accept="image/*" onchange="addUploadedImage(event, 'imageContainer3')" style="display:none;" />
+      </label>
+      <div id="imageContainer3" class="image-container"></div>
+    </td>
+  </tr>
+</table>
+<h4>Fluorescent In Situ Hybridisation (FISH) slides </h4>
+<table style="width:100%; border-collapse: collapse; margin: 24px 0;">
+  <tr>
+    <td style="text-align:center;">
+      <label class="custom-upload-btn">
+        Upload FISH 1
+        <input type="file" accept="image/*" onchange="addUploadedImage(event, 'imageContainer4')" style="display:none;" />
+      </label>
+      <div id="imageContainer4" class="image-container"></div>
+    </td>
+    <td style="text-align:center;">
+      <label class="custom-upload-btn">
+        Upload FISH 2
+        <input type="file" accept="image/*" onchange="addUploadedImage(event, 'imageContainer5')" style="display:none;" />
+      </label>
+      <div id="imageContainer5" class="image-container"></div>
+    </td>
+    <td style="text-align:center;">
+      <label class="custom-upload-btn">
+        Upload FISH 3
+        <input type="file" accept="image/*" onchange="addUploadedImage(event, 'imageContainer6')" style="display:none;" />
+      </label>
+      <div id="imageContainer6" class="image-container"></div>
+    </td>
+  </tr>
+</table>
+
+
+      <div id="exp2" class="experiment">
+        <h2 style="color: #4C34E5">Case Study 2: Lauren & Alan</h2>
+        <h3 style="color: #ff6d3a">LI: Investigating the mechanism of Phenylketonuria (PKU)</h3>
+
+                <ul style="text-align: left; font-weight: normal; margin-left: 8em;">
+          <li>I can describe the phenotype of PKU.</li>
+          <li>I can describe the inheritance of PKU.</li> </ul>
+        <img
+          src="Lauren and Alan.png"
+          alt="Lauren and Alan with baby"
+          style="width: 58%"
+        />
+         
+
+        <h3>Background information: What is PKU?</h3>
+
+        <p> State what PKU stands for and describe the cause of PKU.</p>
+         <textarea
+          id="experiment2"
+          placeholder="Define PKU here"
+        ></textarea>
+
+        <h3 style="color: #ff6d3a">Results: Guthrie Test </h3>
+        <p> Add a picture of the Guthrie test results here, including the positive and negative controls.</p>
+         
+<label class="custom-upload-btn">
+  Upload Image of Guthrie plates together
+    <input
+    type="file"
+    accept="image/*"
+    onchange="addUploadedImage(event, 'imageContainer7')"
+    style="display:none;"
+  />
+</label>
+<div id="imageContainer7" class="image-container"></div>
+
+
+
+        <h3>
+          Provide a report on whether Lauren and Alan's baby has PKU.
+        </h3>
+<p> How would you inform Lauren and Alan about their newborn baby's screening for PKU?  </p>
+        <textarea
+          id="experiment3"
+          placeholder="Example: A Guthrie test was conducted on your baby to screen for...Your baby's test was (positive/negative) for PKU. This means that... "
+        ></textarea>
+        
+
+        <div id="exp3" class="experiment">
+          <h2 style="color: #4C34E5">Case Study 3: Stevie & Ben</h2>
+         <h3 style="color: #ff6d3a">LI: Testing for the inheritance of Phenylketonuria (PKU)</h3>
+          <ul style="text-align: left; font-weight: normal; margin-left: 8em;">
+          <li> I can explain how the PKU predictive genetic test identifies the genotype of individuals.</li>
+          <li> I can use the results of predictive genetic testing to construct a pedigree chart. </li> </ul>
+        <img src="StevieBen.jpg"
+          alt="Stevie and Ben, expectant parents"
+          style="width: 58%"
+        />
+
+          <h3>
+            Background information: Predictive Genetic Testing
+          </h3>
+          <p> Suggest why Stevie and Ben would want in vivo testing. </p>
+          <ul style="text-align: left; font-weight: normal; margin-left: 8em;">
+          Consider:
+            <li>How is PKU inherited?</li>
+          <li>Why would Stevie and Ben need to be tested? </li>
+          <li>Why wouldn't they wait until the baby is born? </li> </ul>
+        <textarea
+          id="experiment4"
+          placeholder="Type information about the  inheritance of PKU here"
+        ></textarea>
+          <div>
+            <h3 style="color: #ff6d3a"> Results: Gel Electrophoresis
+            </h3>
+          </div>
+
+<label class="custom-upload-btn">
+  Upload Image of eGel results
+  <input
+    type="file"
+    accept="image/*"
+    onchange="addUploadedImage(event, 'imageContainer8')"
+    style="display:none;"
+  />
+</label>
+<div id="imageContainer8" class="image-container"></div>
+
+<h4> Analyse your gel electrophoresis results:</h4>
+ 
+ <ul style="text-align: left; font-weight: normal; margin-left: 8em;">Consider:
+          <li>Why do we use a restriction digest when testing for PKU?</li>
+          <li>What did these results tell us after we used the digest?</li>
+          <li>Are there any limitations to these results? </li></ul>
+        <textarea
+          id="experiment5"
+          placeholder="Type your analysis of the gel electrophoresis results here"
+        ></textarea>
+<div id="exp4" class="experiment"></div>
+          <h2 style="color: #4C34E5">Conclusions:</h2>
+<div><h4 style="color: #ff6d3a">Application Questions</h4></div>
+        
+          <h3>Pedigree Chart:</h3>
+
+       <h4>Construct a pedigree chart to show the PKU status of this family.</h4>
+       <label class="custom-upload-btn">
+      Upload Image of Pedigree Chart
+      <input
+        type="file"
+        accept="image/*"
+        onchange="addUploadedImage(event, 'imageContainer9')"
+        style="display:none;"
+      /> </label>
+<div id="imageContainer9" class="image-container"></div>
+
+          <h3>Punnett Square:</h3>
+<p>Lauren and her partner want to have more children in the future. They have been referred to a genetic counsellor to determine the likelihood of their future children having PKU.  </p>
+       
+       <h4>Complete the Punnett Square and comment on their outcomes.</h4>
+
+<table class="punnett-table" style="width: 300px; border-collapse: collapse; margin: 24px auto;">
+  <tr>
+    <th class="no-border"></th>
+    <th contenteditable="true"><br></th>
+    <th contenteditable="true"><br></th>
+  </tr>
+  <tr>
+    <th contenteditable="true"><br></th>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+  </tr>
+  <tr>
+    <th contenteditable="true"><br></th>
+    <td contenteditable="true"></td>
+    <td contenteditable="true"></td>
+  </tr>
+</table>
+
+
+
+<h4 style="color: #155B4F"> Extension: What would the FISH results for Lauren and Alan's baby look like?</h4>
+        <textarea
+          id="experiment6"
+          placeholder="Describe the FISH results for Lauren and Alan's baby here"
+        ></textarea>
+
+
+
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const TWELVE_HOURS = 12 * 60 * 60 * 1000;
+      // ------------------------------------------------------------------------
+      // Scroll to Section Function
+      // ------------------------------------------------------------------------
+      function scrollToSection(sectionId) {
+        document
+          .getElementById(sectionId)
+          .scrollIntoView({ behavior: "smooth" });
+      }
+
+      const DB_NAME = "imageStore";
+      const DB_VERSION = 1;
+      const IMAGE_EXPIRY = 12 * 60 * 60 * 1000; // 12 hours in milliseconds
+
+      // Open IndexedDB
+      function openDB() {
+        return new Promise((resolve, reject) => {
+          const request = indexedDB.open(DB_NAME, DB_VERSION);
+          request.onupgradeneeded = function (event) {
+            const db = event.target.result;
+            if (!db.objectStoreNames.contains("images")) {
+              db.createObjectStore("images", { keyPath: "id" });
+            }
+          };
+          request.onsuccess = function (event) {
+            resolve(event.target.result);
+          };
+          request.onerror = function (event) {
+            reject("Error opening database:", event.target.error);
+          };
+        });
+      }
+
+      // Save Image to IndexedDB
+      function saveImageToDB(containerId, imageData) {
+        openDB().then((db) => {
+          const transaction = db.transaction("images", "readwrite");
+          const store = transaction.objectStore("images");
+
+          // Generate a unique key for each image
+          const uniqueId = containerId + "_" + Date.now();
+
+          const imageEntry = {
+            id: uniqueId, // Unique key
+            containerId: containerId,
+            image: imageData,
+            timestamp: Date.now(),
+          };
+
+          store.put(imageEntry);
+        });
+      }
+
+      // Retrieve and Restore Images from IndexedDB
+      function restoreImagesFromDB() {
+        openDB().then((db) => {
+          const transaction = db.transaction("images", "readonly");
+          const store = transaction.objectStore("images");
+          const request = store.getAll();
+
+          request.onsuccess = function () {
+            const images = request.result;
+            const currentTime = Date.now();
+
+            images.forEach((imageEntry) => {
+              // Check if within expiry
+              if (currentTime - imageEntry.timestamp <= IMAGE_EXPIRY) {
+                // Display each image in the correct container
+                displayImage(imageEntry.image, imageEntry.containerId);
+              } else {
+                // Remove expired images
+                removeImageFromDB(imageEntry.id);
+              }
+            });
+          };
+        });
+      }
+
+      // Remove Image from IndexedDB
+      function removeImageFromDB(containerId) {
+        openDB().then((db) => {
+          const transaction = db.transaction("images", "readwrite");
+          const store = transaction.objectStore("images");
+          store.delete(containerId);
+        });
+      }
+
+      // Function to Display Image in its Container
+      function displayImage(imageData, containerId) {
+        const container = document.getElementById(containerId);
+        if (container) {
+          // Only clear if it is NOT container 3
+          if (containerId !== "imageContainer3") {
+            container.innerHTML = "";
+          }
+
+          const image = document.createElement("img");
+          image.src = imageData;
+          image.style.maxWidth = "100%";
+          container.appendChild(image);
+        }
+      }
+
+      // Modified Upload Image Function to Store in IndexedDB
+      function addUploadedImage(event, containerId) {
+        const file = event.target.files[0];
+        if (file) {
+          const reader = new FileReader();
+          reader.onload = function (e) {
+            const imageData = e.target.result;
+            saveImageToDB(containerId, imageData); // Save each image with a unique ID
+            displayImage(imageData, containerId); // Append the image in the UI
+          };
+          reader.readAsDataURL(file);
+        }
+      }
+
+      // Restore Images on Page Load
+      document.addEventListener("DOMContentLoaded", function () {
+        restoreImagesFromDB();
+      });
+
+      // ------------------------------------------------------------------------
+      // Print Page as PDF
+      // ------------------------------------------------------------------------
+      function printPageAsPDF() {
+        window.print();
+      }
+
+      // ------------------------------------------------------------------------
+      // Save and Restore (Session and Local Storage)
+      // ------------------------------------------------------------------------
+      document.addEventListener("DOMContentLoaded", function () {
+        // Restore text areas from Session Storage on page load
+        document.querySelectorAll("textarea").forEach((textarea) => {
+          const savedText = sessionStorage.getItem(textarea.id);
+          if (savedText !== null) {
+            textarea.value = savedText;
+          }
+          // Save changes to both Session Storage and Local Storage
+          textarea.addEventListener("input", () => {
+            sessionStorage.setItem(textarea.id, textarea.value);
+            // Local Storage now includes a timestamp
+            const dataToStore = {
+              value: textarea.value,
+              timestamp: Date.now(),
+            };
+            localStorage.setItem(textarea.id, JSON.stringify(dataToStore));
+          });
+        });
+
+        // Restore editable table cells from Session Storage on page load
+        const editableCells = document.querySelectorAll(
+          "td[contenteditable=true]"
+        );
+        editableCells.forEach((cell, index) => {
+          const savedCellText = sessionStorage.getItem(`cell-${index}`);
+          if (savedCellText !== null) {
+            cell.innerText = savedCellText;
+          }
+          // Save changes to both Session Storage and Local Storage
+          cell.addEventListener("input", () => {
+            sessionStorage.setItem(`cell-${index}`, cell.innerText);
+            // Save to Local Storage with timestamp
+            const dataToStore = {
+              value: cell.innerText,
+              timestamp: Date.now(),
+            };
+            localStorage.setItem(`cell-${index}`, JSON.stringify(dataToStore));
+          });
+        });
+
+        // Restore the uploaded image from Session Storage if desired (not strictly required, but included here)
+        const uploadedImage = document.getElementById("uploadedImage");
+        if (uploadedImage) {
+          const savedImageData = sessionStorage.getItem("uploadedImage");
+          if (savedImageData) {
+            uploadedImage.src = savedImageData;
+            uploadedImage.style.display = "block";
+          }
+        }
+      });
+
+      // ------------------------------------------------------------------------
+      // Triple Click Detection for Logo
+      // ------------------------------------------------------------------------
+      let clickCount = 0;
+      let firstClickTime = 0;
+
+      document
+        .getElementById("logoImage")
+        .addEventListener("click", detectTripleClick);
+
+      function detectTripleClick() {
+        const currentTime = new Date().getTime();
+
+        // If no clicks yet, initialize
+        if (clickCount === 0) {
+          clickCount = 1;
+          firstClickTime = currentTime;
+        } else {
+          // If current time is still within 1 second of the first click
+          if (currentTime - firstClickTime <= 1000) {
+            clickCount++;
+            // If we reach 3 clicks within 1 second, prompt for password
+            if (clickCount === 3) {
+              promptForPassword();
+              // Reset click counter and time
+              clickCount = 0;
+              firstClickTime = 0;
+            }
+          } else {
+            // More than 1 second has passed since the first click,
+            // so reset and start over
+            clickCount = 1;
+            firstClickTime = currentTime;
+          }
+        }
+      }
+
+      // ------------------------------------------------------------------------
+      // Prompt for Password
+      // ------------------------------------------------------------------------
+      function promptForPassword() {
+        const userPassword = prompt("Please enter the password:");
+        if (userPassword === "Abc") {
+          showOverlay();
+        }
+      }
+
+      function showOverlay() {
+        document.getElementById("passwordOverlay").style.display = "flex";
+      }
+
+      function closeOverlay() {
+        document.getElementById("passwordOverlay").style.display = "none";
+      }
+
+      function restoreLocalStorageData() {
+        // Restore text areas from Local Storage
+        document.querySelectorAll("textarea").forEach((textarea) => {
+          const storedJson = localStorage.getItem(textarea.id);
+          if (storedJson) {
+            try {
+              const parsed = JSON.parse(storedJson);
+              if (Date.now() - parsed.timestamp <= TWELVE_HOURS) {
+                // If it's less than 12 hours old, restore the value
+                textarea.value = parsed.value;
+              } else {
+                // Otherwise, ignore or remove the stale data
+                console.log(
+                  `Data for ${textarea.id} is older than 12 hours; not restoring.`
+                );
+                // Optionally remove from Local Storage:
+                // localStorage.removeItem(textarea.id);
+              }
+            } catch (e) {
+              console.warn(
+                `Invalid JSON in localStorage for ${textarea.id}`,
+                e
+              );
+            }
+          }
+        });
+
+        // Restore table cells from Local Storage
+        document
+          .querySelectorAll("td[contenteditable=true]")
+          .forEach((cell, index) => {
+            const storedJson = localStorage.getItem(`cell-${index}`);
+            if (storedJson) {
+              try {
+                const parsed = JSON.parse(storedJson);
+                if (Date.now() - parsed.timestamp <= TWELVE_HOURS) {
+                  cell.innerText = parsed.value;
+                } else {
+                  console.log(
+                    `Data for cell-${index} is older than 12 hours; not restoring.`
+                  );
+                  // localStorage.removeItem(`cell-${index}`);
+                }
+              } catch (e) {
+                console.warn(
+                  `Invalid JSON in localStorage for cell-${index}`,
+                  e
+                );
+              }
+            }
+          });
+
+        // Close the overlay as before
+        closeOverlay();
+      }
+      // Function to restore a static image to the specified container
+      function restoreImage(containerId, imageSrc) {
+        const container = document.getElementById(containerId);
+        if (container) {
+          const image = document.createElement("img");
+          image.src = imageSrc; // Path to the static image
+          image.style.maxWidth = "100%";
+          container.innerHTML = ""; // Clear any previous content
+          container.appendChild(image);
+        } else {
+          console.error(`Container ${containerId} not found.`);
+        }
+      }
+
+      // Function to Clear All Images from IndexedDB and UI
+      function clearAllImages() {
+        openDB().then((db) => {
+          const transaction = db.transaction("images", "readwrite");
+          const store = transaction.objectStore("images");
+          store.clear(); // Clears all images from IndexedDB
+
+          // Remove images from UI
+          const imageContainers = [
+            "imageContainer1",
+            "imageContainer2",
+            "imageContainer3",
+            "imageContainer4",
+            "imageContainer5",
+            "imageContainer6",
+            "imageContainer7",
+            "imageContainer8",
+            "imageContainer9",
+          ];
+
+          imageContainers.forEach((containerId) => {
+            const container = document.getElementById(containerId);
+            if (container) {
+              container.innerHTML = ""; // Clears the image display
+            }
+          });
+
+          alert("All stored images have been cleared!");
+        });
+      }
+    </script>
+    <!-- Overlay for Password-Protected Actions -->
+    <div id="passwordOverlay" class="overlay">
+      <div class="overlay-content">
+        <span class="close-btn" onclick="closeOverlay()">&times;</span>
+        <h2>Restore Panel</h2>
+        <p>Click a button below to place example images or restore data.</p>
+
+        <button onclick="restoreImage('imageContainer1', 'Turner1.jpg')">
+          Turner Karyotype
+        </button>
+        <button onclick="restoreImage('imageContainer2', 'Albinism1.jpg')">
+          Albinism Karyotype
+        </button>
+        <button onclick="restoreImage('imageContainer3', 'Klinefelter1.jpg')">  
+          Klinefelter Karyotype
+        </button>
+        <button onclick="restoreImage('imageContainer4', 'Turner2.jpg')">
+          Turner FISH
+        </button>
+        <button onclick="restoreImage('imageContainer5', 'Albinism2.jpg')">
+          Albinism FISH
+        </button>        
+        <button onclick="restoreImage('imageContainer6', 'Klinefelter2.jpg')">
+          Klinefelter FISH
+        </button>
+        <button onclick="restoreImage('imageContainer7', 'Guthrie results.png')">
+          Guthrie Test Results
+        </button>
+        <button onclick="restoreImage('imageContainer8', 'vce201 eGel result.png')">
+          Gel Electrophoresis Result
+        </button>
+        <button onclick="restoreImage('imageContainer9', 'PedigreeChart.png')">
+          Pedigree Chart
+        </button>
+        <button onclick="clearAllImages()">
+          Clear All Images (DANGER-CANNOT UNDO)
+        </button>
+
+        <hr />
+        <button onclick="restoreLocalStorageData()">Restore Data</button>
+      </div>
+    </div>
+
+    <style>
+      /* Overlay Styling */
+      .overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 1000;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .overlay-content {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        text-align: center;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+        width: 300px;
+        position: relative;
+      }
+
+      .close-btn {
+        position: absolute;
+        top: 10px;
+        right: 15px;
+        font-size: 20px;
+        cursor: pointer;
+      }
+
+      .overlay button {
+        display: block;
+        width: 100%;
+        background: #007bff;
+        color: white;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 10px;
+      }
+
+      .overlay hr {
+        margin: 15px 0;
+      }
+      @media print {
+  .sidebar {
+    display: none !important;
+  }
+}
+     
+    </style>
+  </body>
+</html>
