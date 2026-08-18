@@ -160,27 +160,20 @@ table .image-container img {
 <table style="width:100%; border-collapse: collapse; margin: 24px 0;">
   <tr>
     <th>1. Turner Syndrome</th>
-    <th>2. Albinism</th>
-    <th>3. Klinefelter Syndrome</th>
+    <th>2. Klinefelter Syndrome</th>
   </tr>
   <tr>
     <td style="text-align:center;">
       <label class="custom-upload-btn">
-        Upload Karyotype 1
+        Upload Karyotype
         <input type="file" accept="image/*" onchange="addUploadedImage(event, 'imageContainer1')" style="display:none;" />
       </label>
       <div id="imageContainer1" class="image-container"></div>
     </td>
+
     <td style="text-align:center;">
       <label class="custom-upload-btn">
-        Upload Karyotype 2
-        <input type="file" accept="image/*" onchange="addUploadedImage(event, 'imageContainer2')" style="display:none;" />
-      </label>
-      <div id="imageContainer2" class="image-container"></div>
-    </td>
-    <td style="text-align:center;">
-      <label class="custom-upload-btn">
-        Upload Karyotype 3
+        Upload Karyotype
         <input type="file" accept="image/*" onchange="addUploadedImage(event, 'imageContainer3')" style="display:none;" />
       </label>
       <div id="imageContainer3" class="image-container"></div>
@@ -196,13 +189,6 @@ table .image-container img {
         <input type="file" accept="image/*" onchange="addUploadedImage(event, 'imageContainer4')" style="display:none;" />
       </label>
       <div id="imageContainer4" class="image-container"></div>
-    </td>
-    <td style="text-align:center;">
-      <label class="custom-upload-btn">
-        Upload FISH 2
-        <input type="file" accept="image/*" onchange="addUploadedImage(event, 'imageContainer5')" style="display:none;" />
-      </label>
-      <div id="imageContainer5" class="image-container"></div>
     </td>
     <td style="text-align:center;">
       <label class="custom-upload-btn">
@@ -716,18 +702,13 @@ table .image-container img {
         <button onclick="restoreImage('imageContainer1', 'Turner1.jpg')">
           Turner Karyotype
         </button>
-        <button onclick="restoreImage('imageContainer2', 'Albinism1.jpg')">
-          Albinism Karyotype
-        </button>
         <button onclick="restoreImage('imageContainer3', 'Klinefelter1.jpg')">  
           Klinefelter Karyotype
         </button>
         <button onclick="restoreImage('imageContainer4', 'Turner2.jpg')">
           Turner FISH
         </button>
-        <button onclick="restoreImage('imageContainer5', 'Albinism2.jpg')">
-          Albinism FISH
-        </button>        
+      
         <button onclick="restoreImage('imageContainer6', 'Klinefelter2.jpg')">
           Klinefelter FISH
         </button>
